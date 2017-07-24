@@ -16,7 +16,15 @@ class App extends Component {
   // bindings
   this.goToHome = this.goToHome.bind(this);
   this.goToAbout = this.goToAbout.bind(this);
+  this.goToPage = this.goToPage.bind(this);
 
+
+  }
+
+    goToPage(nextPage){
+    this.setState({
+      page: nextPage
+    });
   }
   
   goToHome(){
@@ -47,8 +55,8 @@ class App extends Component {
     return (
       <div className="App">
         <nav>
-          <h2 onClick={this.goToHome}> HOME </h2>
-          <h2 onClick={this.goToAbout}> ABOUT </h2>
+          <h2 onClick={ () => {this.goToPage('home')}} > HOME </h2>
+          <h2 onClick={ () => {this.goToPage('about')}}> ABOUT </h2>
         </nav>
         {content}
       </div>
